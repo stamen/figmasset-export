@@ -1,0 +1,12 @@
+{
+  "name": "figma-export",
+  "version": "0.0.1",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "figmasset": "https://github.com/stevage/figmasset",
+    "node-fetch": "^2.6.1",
+    "nodejs-file-downloader": "^4.7.1",
+    "yargs": "^17.0.1"
+  }
+}
