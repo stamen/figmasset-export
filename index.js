@@ -32,6 +32,11 @@ const argv = yargs(hideBin(process.argv))
         description: 'Scales at which to export: 2 for @2x',
         array: true,
     })
+    .option('format', {
+        type: 'string',
+        description: 'Image format (png or svg)',
+        default: 'png',
+    })
     .demandOption(
         ['frame', 'file'],
         'You need to specify the file and the specific frame[s] that contain your assets.'

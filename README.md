@@ -30,7 +30,7 @@ The `--frame` option can reference either the node ID ("3:5", found in the URL) 
 
 ### Guide
 
-Arrange your assets as top-level children under one or more frames. That is, your Layers sidebar should look something like this:
+In Figma, arrange your assets as top-level children under one or more frames. That is, your Layers sidebar should look something like this:
 
 ```
 # myframe
@@ -79,6 +79,7 @@ async function loadAssets(map) {
             this.map.addImage(asset.id, image, { pixelRatio: asset.scale })
         });
     }
+}
 ```
 
 

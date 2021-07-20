@@ -15,14 +15,14 @@ async function download({ figmaOptions, downloadDir }) {
             return figmaOptions.scales.map((scale) => {
                 assetsByScale[scale].push({
                     id: assetKey,
-                    fileName: `${assetKey}.png`,
+                    fileName: `${assetKey}.${figmaOptions.format}`,
                     scale,
                     // TODO width/height etc
                 });
                 return new Downloader({
                     url: asset[`@${scale}x`],
                     directory: downloadDir + `@${scale}x`,
-                    fileName: `${assetKey}.png`,
+                    fileName: `${assetKey}.${figmaOptions.format}`,
                     cloneFiles: false,
                 }).download();
             });
@@ -45,6 +45,7 @@ async function runExport(argv) {
             scales: argv.scale,
             frameIds: argv.frame.filter((id) => id.match(/^\d+:\d+$/)),
             frameNames: argv.frame.filter((id) => !id.match(/^\d+:\d+$/)),
+            format: argv.format,
         },
         downloadDir: argv.out,
     };
