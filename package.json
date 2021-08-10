@@ -14,5 +14,8 @@
     ],
     "bin": {
         "figmasset-export": "./index.js"
+    },
+    "devDependencies": {
+        "jest": "^27.0.6"
     }
 }

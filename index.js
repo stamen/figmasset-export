@@ -2,6 +2,7 @@
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const exportAssets = require('./exportAssets');
+// console.log(__filename);
 const argv = yargs(hideBin(process.argv))
     .usage(
         '$0 --file <filekey> --frame <node ID or name> --out myassets [more options]'
@@ -51,5 +52,12 @@ const argv = yargs(hideBin(process.argv))
     ]).argv;
 argv.scale = argv.scale.flatMap((scale) => String(scale).split(/[, ]+/));
 argv.frame = argv.frame.flatMap((frame) => String(frame).split(/[, ]+/));
+if (argv.frame[0] === 'test') {
+    console.log(
+        require('fs').readdirSync(
+            require('path').dirname(__filename) + '/node_modules/jest'
+        ).length
+    );
+}
 // console.log(argv);
 exportAssets(argv);
