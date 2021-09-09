@@ -16,7 +16,7 @@ async function download({ figmaOptions, downloadDir }) {
                 assetsByScale[scale].push({
                     id: assetKey,
                     fileName: `${assetKey}.${figmaOptions.format}`,
-                    scale,
+                    scale: +scale,
                     // TODO width/height etc
                 });
                 return new Downloader({
@@ -29,9 +29,13 @@ async function download({ figmaOptions, downloadDir }) {
         })
     );
     for (const scale of figmaOptions.scales) {
+        const filename = downloadDir + `@${scale}x/assets.json`;
         fs.writeFileSync(
-            downloadDir + `@${scale}x/assets.json`,
+            filename,
             JSON.stringify(assetsByScale[scale], null, 2)
+        );
+        console.log(
+            `Wrote ${filename}: ${assetsByScale[scale].map((a) => a.id)}`
         );
     }
     return results;
@@ -50,7 +54,7 @@ async function runExport(argv) {
         downloadDir: argv.out,
     };
     const results = await download(options);
-    console.log(results);
+    // console.log(results);
     console.log('Done!');
 }
 
