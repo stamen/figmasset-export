@@ -2,7 +2,7 @@
 
 Simplifies exporting a number of assets from Figma to disk.
 
-One use case for this is when a project that uses FigmassetJS, leaves the iterative design phase and moves into production. You can simply export all assets into a static image directory, and replace the FigmassetJS code with the snippet given below.
+One use case for this is when a project that uses [FigmassetJS](https://www.npmjs.com/package/figmasset), leaves the iterative design phase and moves into production. You can simply export all assets into a static image directory, and replace the FigmassetJS code with the snippet given below.
 
 ### Usage
 
